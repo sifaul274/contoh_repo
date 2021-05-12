@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QUIZ</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var jwbsoal1 = "";
+	$(".hideButton").click(function(){
+		$(".hideOne").hide();
+	});
+	$(".bto1").click(function(){
+		$(".to1").hide();
+		var q1 = "<div class=\"toend centered\"><h2>Soal Pertama</h2><p>Soal diakhiri tanda tanya?</p><input type=\"radio\" name=\"soal1\" value=\"ya\"><label for=\"ya\">Ya</label><input type=\"radio\" name=\"soal1\" value=\"tidak\"><label for=\"tidak\">Tidak</label></div>";
+		$(".showq1").html(q1);
+	});
+	$(".submit1").click(function(){
+		var checked1 = $('input:radio[name=soal1]:checked').val();
+		if (checked1 == "ya") {
+			jwbsoal1 = "Jawaban soal nomer 1: Ya (Benar)";
+		} else {
+			jwbsoal1 = "Jawaban soal nomer 1: Tidak (Salah)";
+		}
+	});
+	$(".btoend").click(function(){
+		$(".showend").show();
+		$(".toend").hide();
+	});
+	$(".end1").click(function(){
+		$(".endquiz").html("<div class=\"centered\">"+jwbsoal1+"</div>");
+	});
+});
+</script>
+<style type="text/css">
+	.container{
+		color: white;
+		height: 200px;
+		position: relative;
+		background-color: gray;
+	}
+	.centered{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-ms-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+	}
+</style>
+</head>
+<body>
+<div class="container showq1 showq2 showq3 endquiz">
+	<button class="centered hideButton bto1 to1">Start</button>
+</div>
+<button class="bto2 to2 btoend toend submit1">Submit soal 1</button>
+<button class="hideOne showend end1">Lihat hasil</button>
+</body>
+</html>
